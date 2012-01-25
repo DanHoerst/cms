@@ -5,5 +5,11 @@
     <body>
         <h1>{{ flatpage.title }}</h1>
         {{ flatpage.content }}
+    <br>
+    <form method="get" action="/search/">
+        <p><label for="id_q">Search:</label>
+        <input type="text" name="q" id="id_q" />
+        <input type="submit" value="Submit" /></p>
+    </form>
     </body>
 </html>
