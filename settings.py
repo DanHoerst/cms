@@ -120,6 +120,7 @@ INSTALLED_APPS = (
     'django.contrib.flatpages',
     'cms.search',
     'gambino',
+    'tagging',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )

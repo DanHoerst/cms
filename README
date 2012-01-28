@@ -6,3 +6,7 @@ This is a simple CMS site
 - Added keyword addition in stacked format in Admin
 - Made search redirect to result if only one result
 - Added Gambino weblog app
+- Added Markdown from https://sourceforge.net/projects/python-markdown/
+- Added Django Tagging from http://code.google.com/p/django-tagging/
+
+
