@@ -2,3 +2,6 @@ This is a simple CMS site
 
 - Added TinyMCE to Admin "add" flatpage
 - Added simple page search feature
+- Made the search more complex
+- Added keyword addition in stacked format in Admin
+- Made search redirect to result if only one result
