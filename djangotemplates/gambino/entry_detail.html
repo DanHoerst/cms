@@ -1,0 +1,11 @@
+<html>
+    <head>
+        <title>{{ entry.title }}</title>
+    </head>
+    <body>
+        <h1>{{ entry.title }}</h1>
+        <h3>Published on: {{ entry.pub_date }}</h3>
+
+        <p>{{ entry.body_html|safe }}</p>
+    </body>
+</html>
