@@ -6,6 +6,7 @@ from markdown import markdown
 
 class Category(models.Model):
     title = models.CharField(max_length=250, help_text='Maximum 250 characters.')
+    # Slug prepopulated from title in admin.py
     slug = models.SlugField(unique=True, help_text="Suggested value automatically generated from title. Must be unique.")
     description = models.TextField()
 
@@ -20,6 +21,7 @@ class Category(models.Model):
         return "/categories/%s/" % self.slug
 
 class Entry(models.Model):
+    # Entry types
     LIVE_STATUS = 1
     DRAFT_STATUS = 2
     HIDDEN_STATUS = 3
@@ -30,11 +32,13 @@ class Entry(models.Model):
     )
     author = models.ForeignKey(User)
     title = models.CharField(max_length=250, help_text='Maximum 250 characters.')
+    # Bit of redundancy with excerpt & excerpt_html and body & body_html, but seems to be cleanest way to seperate plain text and html
     excerpt = models.TextField(blank=True, help_text='Add an excerpt - a short summary of your post.')
     excerpt_html = models.TextField(editable=False, blank=True)
     body = models.TextField(help_text='Add the content of your post.')
     body_html = models.TextField(editable=False, blank=True)
     pub_date = models.DateTimeField(default=datetime.datetime.now)
+    # Slug prepopulated from title in admin.py
     slug = models.SlugField(unique_for_date='pub_date', help_text="Suggested value automatically generated from title. Must be unique.")
     enable_comments = models.BooleanField(default=True)
     featured = models.BooleanField(default=False, help_text="Make this post featured. Will provide additional sorting.")
@@ -48,7 +52,8 @@ class Entry(models.Model):
 
     def __unicode__(self):
         return self.title
- 
+
+    # Saves body into body_html and excerpt into excerpt_html using Markdown dependancy 
     def save(self):
         self.body_html = markdown(self.body)
         if self.excerpt:

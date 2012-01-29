@@ -5,8 +5,5 @@ class SearchKeyword(models.Model):
     keyword = models.CharField(max_length=50)
     page = models.ForeignKey(FlatPage)
 
-    class Admin:
-        pass
-
     def __unicode__(self):
         return self.keyword
