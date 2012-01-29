@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Blog Entries</title>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}style.css"  MEDIA=screen>
+</head>
+<body>
+<div id="page">	
+	<div id="header">
+			<h1><a href="#">A Simple CMS</a></h1>
+			<div class="description">Blog</div>
+	</div>	
+	<div id="mainarea">
+	<div id="contentarea">
+        {% block content %}
+            {% for entry in latest %}
+                <h2>{{ entry.title }}</h2>
+                <p>Published on {{ entry.pub_date|date:"F j, Y" }}</p>
+                {% if entry.excerpt_html %}
+                    {{ entry.excerpt_html|safe }}
+                {% else %}
+                    {{ entry.body_html|truncatewords_html:"50"|safe }}
+                {% endif %}
+                <p><a href="{{ entry.get_absolute_url }}">Read full entry</a></p>
+                <br>
+            {% endfor %}
+        {% endblock %}
+	</div>
+	<div id="sidebar">
+		<div id="sidebarnav">
+		<a class="active" href="#">Home</a>
+		<a href="/search/">FlatPages</a>
+		<a href="/contactus/">Contact Us</a>
+		</div>
+		<div class="widget">
+		<h2>Gambino Blog</h2>
+		This is the Gambino Blog system developed in Python, Django, HTML, and CSS. Thank you for using it! To check out the FlatPages CMS system - click FlatPages in the links section above.
+		<br/><br/>
+		<strong>Dan Hoerst</strong>
+	</div></div></div>
+	
+	<div id="footer">
+		Designed by Dan Hoerst. A simple CMS and Weblog</a>
+	</div>
+
+
+</div>
+
+</body>
+
+</html>

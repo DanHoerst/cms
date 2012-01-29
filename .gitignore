@@ -1,5 +1,6 @@
 #python specific
 *.pyc
+settings.py
 
 ## generic files to ignore
 *~

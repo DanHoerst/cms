@@ -148,3 +148,7 @@ LOGGING = {
         },
     }
 }
+
+# Delicious Login and Pass
+DELICIOUS_USER = 
+DELICIOUS_PASSWORD = 
