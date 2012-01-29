@@ -4,35 +4,28 @@
 
 <head>
 <title>{{ flatpage.title }}</title>
-<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}style.css"  MEDIA=screen>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}flatpagestyle.css"  MEDIA=screen>
 </head>
 
 <body>
 
 <div id="page">	
 	<div id="header">
-			<h1><a href="#">A Simple CMS</a></h1>
+			<h1>FlatPages</h1>
 
-			<div class="description">FlatPage</div>
+			<div class="description">A Simple CMS</div>
 	</div>
 	
 	<div id="mainarea">
 	<div id="contentarea">
         <h1>{{ flatpage.title }}</h1>
         {{ flatpage.content }}
-        <br>
-        <form method="get" action="/search/">
-            <p><label for="id_q">Search:</label>
-            <input type="text" name="q" id="id_q" />
-            <input type="submit" value="Submit" /></p>
-        </form>
 	</div>
 	
 	<div id="sidebar">
 		<div id="sidebarnav">
-		<a href="#">Home</a>
+    	<a href="/search/">Search Flatpages</a>
 		<a href="/weblog/">Blog</a>
-		<a href="/search/">Search Flatpages</a>
 		<a href="/contactus/">Contact Us</a>
 		</div>
 		

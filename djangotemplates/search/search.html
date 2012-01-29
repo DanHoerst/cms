@@ -3,17 +3,17 @@
 <html>
 
 <head>
-<title>Search</title>
-<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}style.css"  MEDIA=screen>
+<title>FlatPage Search</title>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}flatpagestyle.css"  MEDIA=screen>
 </head>
 
 <body>
 
 <div id="page">	
 	<div id="header">
-			<h1><a href="#">A Simple CMS</a></h1>
+			<h1>A Simple CMS</h1>
 
-			<div class="description">Search</div>
+			<div class="description">FlatPage Search</div>
 	</div>
 	
 	<div id="mainarea">
@@ -46,15 +46,14 @@
         {% if query and not keyword_results and not results %}                
             <p>No results found.</p>
         {% else %}
-            <p>Type a search query into the box above, and press "Submit" to search.</p>
+            <p>Search for a FlatPage in the box above, and press "Submit" to search.</p>
         {% endif %}
 	</div>
 	
 	<div id="sidebar">
 		<div id="sidebarnav">
-		<a href="#">Home</a>
+		<a class = "active" href="#">Home</a>
 		<a href="/weblog/">Blog</a>
-		<a class = "active" href="#">Search Flatpages</a>
 		<a href="/contactus/">Contact Us</a>
 		</div>
 		

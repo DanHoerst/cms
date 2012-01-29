@@ -1,5 +1,5 @@
 body {
-background-color:#261b0f;
+background-color:#000000;
 font-size:12pt;
 font-family:Arial;
 margin:0;
@@ -11,7 +11,7 @@ color:#FFFFFF;
 
 #page {
 width:900px;
-background-image:url(images/page.png);
+background-image:url(images/bluepage.png);
 margin:auto;
 padding:auto;
 }
@@ -20,7 +20,7 @@ padding:auto;
 clear:both;
 width:850px;
 height:132px;
-background-image:url(images/header.png);
+background-image:url(images/blueheader.png);
 padding-top:35px;
 padding-left:50px;
 }
@@ -45,13 +45,13 @@ margin-top:10px;
   
   
 #sidebarnav a:hover {
-	background-color:#312314;
+	background-color:#000000;
 	text-decoration:none;
 	color:#FFFFFF;
 }
 
 #sidebarnav a.active, #sidebarnav a.active:hover {
-	background-color:#261b0f;
+	background-color:#000000;
 	text-decoration:none;
 	color:#FFFFFF;
 }
@@ -90,7 +90,7 @@ height:35px;
 padding-top:45px;
 text-align:center;
 line-height:14pt;
-background-image:url(images/footer.png);
+background-image:url(images/bluefooter.png);
 background-repeat:no-repeat;
 background-color:#FFFFFF;
 }
