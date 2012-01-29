@@ -1,6 +1,7 @@
 from django.shortcuts import render_to_response
 from django.contrib.flatpages.models import FlatPage
 from django.http import HttpResponseRedirect
+from django.template import RequestContext
 
 def search(request):
     query = request.GET.get('q', '')
@@ -14,4 +15,9 @@ searchkeyword__keyword__in=query.split()).distinct()
     return render_to_response('search/search.html',
                               { 'query': query,
                                 'keyword_results': keyword_results,
-                                'results': results })
+                                'results': results },
+                              context_instance=RequestContext(request))
+
+def contactus(request):
+    return render_to_response('search/contactus.html',
+                              context_instance=RequestContext(request))

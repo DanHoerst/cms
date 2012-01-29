@@ -20,5 +20,6 @@ urlpatterns = patterns('',
     url(r'^search/$', 'cms.search.views.search'),
     url(r'^weblog/$', 'gambino.views.entries_index'),
     url(r'^weblog/(?P<year>\d{4})/(?P<month>\w{3})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$', 'gambino.views.entry_detail'),
+    url(r'^contactus/$', 'cms.search.views.contactus'),
     url(r'', include(urls.urlpatterns)),
 )

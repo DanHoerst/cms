@@ -1,8 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
-    <head>
-		<title>Search</title>
-    </head>
-	<body>
+
+<head>
+<title>Search</title>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}style.css"  MEDIA=screen>
+</head>
+
+<body>
+
+<div id="page">	
+	<div id="header">
+			<h1><a href="#">A Simple CMS</a></h1>
+
+			<div class="description">Search</div>
+	</div>
+	
+	<div id="mainarea">
+	<div id="contentarea">
+		<h2>Search Results:</h2>
 		<form method="get" action="/search/">
             <p><label for="id_q">Search:</label>
             <input type="text" name="q" id="id_q" value="{{ query }}" />
@@ -32,5 +48,30 @@
         {% else %}
             <p>Type a search query into the box above, and press "Submit" to search.</p>
         {% endif %}
-	</body>
+	</div>
+	
+	<div id="sidebar">
+		<div id="sidebarnav">
+		<a href="#">Home</a>
+		<a href="/weblog/">Blog</a>
+		<a class = "active" href="#">Search Flatpages</a>
+		<a href="/contactus/">Contact Us</a>
+		</div>
+		
+		<div class="widget">
+		<h2>Simple CMS</h2>
+		This is a simple CMS system developed in Python, Django, HTML, and CSS. Thank you for using it!
+		<br/><br/>
+		<strong>Dan Hoerst</strong>
+	</div></div></div>
+	
+	<div id="footer">
+		Designed by Dan Hoerst. A simple CMS and Weblog</a>
+	</div>
+
+
+</div>
+
+</body>
+
 </html>

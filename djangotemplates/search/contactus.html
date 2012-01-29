@@ -3,7 +3,7 @@
 <html>
 
 <head>
-<title>{{ entry.title }}</title>
+<title>{{ flatpage.title }}</title>
 <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}style.css"  MEDIA=screen>
 </head>
 
@@ -13,15 +13,18 @@
 	<div id="header">
 			<h1><a href="#">A Simple CMS</a></h1>
 
-			<div class="description">Blog</div>
+			<div class="description">Contact Us</div>
 	</div>
 	
 	<div id="mainarea">
 	<div id="contentarea">
-        <h1>{{ entry.title }}</h1>
-        <h3>Published on: {{ entry.pub_date }}</h3>
-
-        <p>{{ entry.body_html|safe }}</p>
+        <p> Hi. I am Dan Hoerst. You can contact me by: </p>
+        <br>
+        <p> Email: DHoerst1@gmail.com </p>
+        <p> Phone: </p>
+        <p> Facebook: </p>
+        <p> LinkedIn: </p>
+        <p> GitHub: <a href="http://www.github.com/Danny830x">Danny830x</a>
 	</div>
 	
 	<div id="sidebar">
@@ -29,7 +32,7 @@
 		<a href="#">Home</a>
 		<a href="/weblog/">Blog</a>
 		<a href="/search/">Search Flatpages</a>
-		<a href="/contactus/">Contact Us</a>
+		<a class = "active" href="#">Contact Us</a>
 		</div>
 		
 		<div class="widget">

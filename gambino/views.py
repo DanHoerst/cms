@@ -1,9 +1,11 @@
 from django.shortcuts import get_object_or_404, render_to_response
 from gambino.models import Entry
+from django.template import RequestContext
 
 def entries_index(request):
     return render_to_response('gambino/entry_index.html',
-                              { 'entry_list': Entry.objects.all() })
+                              { 'entry_list': Entry.objects.all() },
+                              context_instance=RequestContext(request))
 
 def entry_detail(request, year, month, day, slug):
     import datetime, time
@@ -13,4 +15,5 @@ def entry_detail(request, year, month, day, slug):
                                      pub_date__month=pub_date.month,
                                      pub_date__day=pub_date.day, 
                                      slug=slug)
-    return render_to_response('gambino/entry_detail.html', { 'entry': entry })
+    return render_to_response('gambino/entry_detail.html', { 'entry': entry },
+                              context_instance=RequestContext(request))

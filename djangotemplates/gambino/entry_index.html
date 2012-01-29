@@ -1,9 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
-    <head>
-        <title>Entries index</title>
-    </head>
-    <body>
-        <h1>Entries index</h1>
+
+<head>
+<title>Blog</title>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}style.css"  MEDIA=screen>
+</head>
+
+<body>
+
+<div id="page">	
+	<div id="header">
+			<h1><a href="#">A Simple CMS</a></h1>
+
+			<div class="description">Blog</div>
+	</div>
+	
+	<div id="mainarea">
+	<div id="contentarea">
         {% for entry in entry_list %}
             <h1>{{ entry.title }}</h2>
             <p>Published on {{ entry.pub_date|date:"F j, Y" }}</p>
@@ -14,5 +28,30 @@
             {% endif %}
             <p><a href="{{ entry.get_absolute_url }}">Read full entry</a></p>
         {% endfor %}
-    </body>
+	</div>
+	
+	<div id="sidebar">
+		<div id="sidebarnav">
+		<a href="#">Home</a>
+		<a class="active" href="#">Blog</a>
+		<a href="/search/">Search Flatpages</a>
+		<a href="/contactus/">Contact Us</a>
+		</div>
+		
+		<div class="widget">
+		<h2>Simple CMS</h2>
+		This is a simple CMS system developed in Python, Django, HTML, and CSS. Thank you for using it!
+		<br/><br/>
+		<strong>Dan Hoerst</strong>
+	</div></div></div>
+	
+	<div id="footer">
+		Designed by Dan Hoerst. A simple CMS and Weblog</a>
+	</div>
+
+
+</div>
+
+</body>
+
 </html>
