@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 import datetime
 from tagging.fields import TagField
 from markdown import markdown
+from django.conf import settings
+from django.core.urlresolvers import reverse
 
 class Category(models.Model):
     title = models.CharField(max_length=250, help_text='Maximum 250 characters.')
@@ -93,5 +95,20 @@ class Link(models.Model):
     def save(self):
         if self.description:
             self.description_html = markdown(self.description)
+        if not self.id and self.post_elsewhere:
+            # import pydelicious dependancy to send to del.icio.us
+            import pydelicious
+            # import smart_str to change unicode to str to send over web API
+            from django.utils.encoding import smart_str
+            pydelicious.add(settings.DELICIOUS_USER, settings.DELICIOUS_PASSWORD,
+                            smart_str(self.url), smart_str(self.title),
+                            smart_str(self.tags))
         super(Link, self).save()
+    # get_absolute_url with permalink to enable reverse loopup in URLconf
+    def get_absolute_url(self):
+        return ('gambino_link_detail', (), { 'year': self.pub_date.strftime('%Y'),
+                                             'month': self.pub_date.strftime('%b').lower(),
+                                             'day': self.pub_date.strftime('%d'),
+                                             'slug': self.slug })
+    get_absolute_url = models.permalink(get_absolute_url)
     

@@ -8,6 +8,7 @@ This is a simple CMS site
 - Added Gambino weblog app
 - Added Markdown from https://sourceforge.net/projects/python-markdown/
 - Added Django Tagging from http://code.google.com/p/django-tagging/
+        Copyright (c) 2010, The MIT License
 - Added Delicious API for URL posting
         Copyright (c) 1998, Regents of the University of California
         All rights reserved.

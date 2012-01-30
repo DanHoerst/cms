@@ -10,8 +10,14 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     # Search
     url(r'^search/$', 'cms.search.views.search'),
-    # Weblog include
-    url(r'^weblog/', include('gambino.urls')),
+    # Weblog categories include
+    url(r'^weblog/categories/', include('cms.gambino.urls.categories')),
+    # Weblog links include
+    url(r'^weblog/links/', include('cms.gambino.urls.links')),
+    # Weblog tags include
+    url(r'^weblog/tags/', include('cms.gambino.urls.tags')),
+    # Weblog entries include
+    url(r'^weblog/', include('cms.gambino.urls.entries')),
     # Contact
     url(r'^contactus/$', 'cms.search.views.contactus'),
     # Catch All
