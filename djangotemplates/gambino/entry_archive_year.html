@@ -1,57 +1,17 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+{% extends "base_entries.html" %}
 
-<html>
+{% block title %}{{ block.super }} | {{ year }}{% endblock %}
 
-<head>
-<title>Entry Archive Year</title>
-<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}style.css"  MEDIA=screen>
-</head>
-
-<body>
-
-<div id="page">	
-	<div id="header">
-			<h1><a href="#">A Simple CMS</a></h1>
-
-			<div class="description">Blog</div>
-	</div>
-	
-	<div id="mainarea">
-	<div id="contentarea">
-        {% block content %}
-            <ul>
-            {% for month in date_list %}
-                <li><a href="/weblog/{{ year }}/{{ month|date:"b" }}/">{{ month|date:"F" }}</a></li>
-            {% endfor %}
-            </ul>
-        {% endblock %}
-
-        {% block whatis %}
-        <p>This is a list of months in {{ year }} in which entries were published in the blog.</p>
-        {% endblock %}
-	</div>
-	
-	<div id="sidebar">
-		<div id="sidebarnav">
-		<a class="active" href="#">Home</a>
-		<a href="/search/">FlatPages</a>
-		<a href="/contactus/">Contact Us</a>
-		</div>
-		
-		<div class="widget">
-		<h2>Gambino Blog</h2>
-		This is the Gambino Blog system developed in Python, Django, HTML, and CSS. Thank you for using it! To check out the FlatPages CMS system - click FlatPages in the links section above.
-		<br/><br/>
-		<strong>Dan Hoerst</strong>
-	</div></div></div>
-	
-	<div id="footer">
-		Designed by Dan Hoerst. A simple CMS and Weblog</a>
-	</div>
-
-
-</div>
-
-</body>
-
-</html>
+{% block content %}
+<ul>
+    {% for month in date_list %}
+        <li>
+            <a href="{% url gambino_entry_archive_month year,month|date:"b" %}">{{ month|date:"F" }}</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
+<br>
+{% block whatis %}
+<p> This is a list of months in {{ year }} in which I published entries in my blog.</p>
+{% endblock %}

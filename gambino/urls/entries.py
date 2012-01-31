@@ -3,7 +3,7 @@ from gambino.models import Entry
 
 # define entry_info_dict used for generic view
 entry_info_dict = {
-    'queryset': Entry.objects.all(),
+    'queryset': Entry.live.all(),
     'date_field': 'pub_date',
 }
 

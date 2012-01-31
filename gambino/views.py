@@ -5,5 +5,4 @@ from django.template import RequestContext
 def category_detail(request, slug):
     category = get_object_or_404(Category, slug=slug)
     return render_to_response('gambino/category_detail.html',
-                              { 'object_list': category.entry_set.all(),
-                                'category': category })
+                              { 'object_list': category.live_entry_set() })

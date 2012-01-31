@@ -1,50 +1,6 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
-<html>
-
-<head>
-<title>{{ object.title }}</title>
-<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}style.css"  MEDIA=screen>
-</head>
-
-<body>
-
-<div id="page">	
-	<div id="header">
-			<h1><a href="#">A Simple CMS</a></h1>
-
-			<div class="description">Blog</div>
-	</div>
-	
-	<div id="mainarea">
-	<div id="contentarea">
-        <h1>{{ object.title }}</h1>
-        <h3>Published on: {{ object.pub_date }}</h3>
-
-        <p>{{ object.body_html|safe }}</p>
-	</div>
-	
-	<div id="sidebar">
-		<div id="sidebarnav">
-		<a href="/weblog/">Home</a>
-		<a href="/search/">FlatPages</a>
-		<a href="/contactus/">Contact Us</a>
-		</div>
-		
-		<div class="widget">
-		<h2>Simple CMS</h2>
-		This is a simple CMS system developed in Python, Django, HTML, and CSS. Thank you for using it!
-		<br/><br/>
-		<strong>Dan Hoerst</strong>
-	</div></div></div>
-	
-	<div id="footer">
-		Designed by Dan Hoerst. A simple CMS and Weblog</a>
-	</div>
-
-
-</div>
-
-</body>
-
-</html>
+{% extends "base.html" %}
+{% block content %}
+<h3>Published on: {{ object.pub_date }}</h3>
+<br>
+<p>{{ object.body_html|safe }}</p>
+{% endblock %}

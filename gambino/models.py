@@ -5,6 +5,10 @@ from tagging.fields import TagField
 from markdown import markdown
 from django.conf import settings
 from django.core.urlresolvers import reverse
+# Manager override for Entry class to allow for LIVE_STATUS filtering
+class LiveEntryManager(models.Manager):
+    def get_query_set(self):
+        return super(LiveEntryManager, self).get_query_set().filter(status=self.model.LIVE_STATUS)
 
 class Category(models.Model):
     title = models.CharField(max_length=250, help_text='Maximum 250 characters.')
@@ -21,6 +25,10 @@ class Category(models.Model):
     # Status get_absolute_url
     def get_absolute_url(self):
         return "/categories/%s/" % self.slug
+    # Live entries
+    def live_entry_set(self):
+        from gambino.models import Entry
+        return self.entry_set.filter(status=Entry.LIVE_STATUS)
 
 class Entry(models.Model):
     # Entry types
@@ -48,6 +56,9 @@ class Entry(models.Model):
     status = models.IntegerField(choices=STATUS_CHOICES, default=LIVE_STATUS)
     categories = models.ManyToManyField(Category)
     tags = TagField()
+    # Adds objects and live override from LiveEntryManager class above
+    live = LiveEntryManager()
+    objects = models.Manager()
     # Meta
     class Meta:
         ordering = ['-pub_date']

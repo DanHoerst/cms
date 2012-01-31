@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Weblog: {{ object.title }}</title>
+<style type="text/css">
+body {
+background-color:#261b0f;
+font-size:10pt;
+font-family:Arial;
+margin:0;
+padding:0;
+background-image:url({{ STATIC_URL }}images/back.png);
+background-repeat:repeat-x;
+color:#FFFFFF;
+}
+
+#page {
+width:900px;
+background-image:url({{ STATIC_URL }}images/page.png);
+margin:auto;
+padding:auto;
+}
+
+#header {
+clear:both;
+width:850px;
+height:132px;
+background-image:url({{ STATIC_URL }}images/header.png);
+padding-top:35px;
+padding-left:50px;
+}
+
+#sidebarnav {
+margin-top:10px;
+}
+  
+#sidebarnav a {
+	width:250px;
+	display:block;
+	clear:both;
+	padding-left:20px;
+	padding-top:6px;
+	height:25px;
+	color:#FFFFFF;
+	text-decoration:none;
+	font-size:14px;
+	font-weight:bold;
+	margin-top:3px;
+  }
+  
+  
+#sidebarnav a:hover {
+	background-color:#312314;
+	text-decoration:none;
+	color:#FFFFFF;
+}
+
+#sidebarnav a.active, #sidebarnav a.active:hover {
+	background-color:#261b0f;
+	text-decoration:none;
+	color:#FFFFFF;
+}
+
+#mainarea {
+width:870px;
+clear:both;
+padding-left:40px;
+}
+
+#contentarea {
+width:523px;
+padding-right:20px;
+padding-bottom:20px;
+float:left;
+line-height:14pt;
+}
+
+#sidebar {
+float:left;
+width:245px;
+background-image:url({{ STATIC_URL }}images/sidebartop.png);
+background-repeat:no-repeat;
+line-height:14pt;
+}
+
+.widget {
+padding-left:20px;
+padding-top:200px;
+}
+
+#footer {
+width:900px;
+clear:both;
+height:35px;
+padding-top:45px;
+text-align:center;
+line-height:14pt;
+background-image:url({{ STATIC_URL }}images/footer.png);
+background-repeat:no-repeat;
+background-color:#FFFFFF;
+}
+
+h1, h1 a {
+font-size:25pt;
+color:#FFFFFF;
+margin:0;
+}
+
+h2 {
+font-size:15pt;
+color:#FFFFFF;
+padding-top:6px;
+}
+
+.description {
+font-size:14pt;
+color:#FFFFFF;
+margin:0;
+}
+
+a {
+color:#FFFFCC;
+text-decoration:none;
+}
+
+a:hover {
+text-decoration:underline;
+}
+</style>
+</head>
+<body>
+<div id="page">	
+	<div id="header">
+			<h1><a href="#">A Simple CMS</a></h1>
+			<div class="description">Blog</div>
+	</div>
+	
+	<div id="mainarea">
+	<div id="contentarea">
+    <h1>{{ object.title }}</h1>
+    {% block content %}
+    {% endblock %}
+    <br>
+    {% block whatis %}
+    {% endblock %}
+	</div>
+	
+	<div id="sidebar">
+		<div id="sidebarnav">
+		<a href="{% url gambino_entry_archive_index %}">Home</a>
+        <a href="{% url gambino_link_archive_index %}">Links</a>
+        <a href="{% url gambino_category_list %}">Categories</a>
+        <a href="{% url gambino_tag_list %}">Tags</a>
+		<a href="/search/">FlatPages</a>
+		<a href="/contactus/">Contact Us</a>
+		</div>
+		
+		<div class="widget">
+		<h2>Simple CMS</h2>
+		This is a simple CMS system developed in Python, Django, HTML, and CSS. Thank you for using it!
+		<br/><br/>
+		<strong>Dan Hoerst</strong>
+	</div></div></div>
+	
+	<div id="footer">
+		Designed by Dan Hoerst. A simple CMS and Weblog</a>
+	</div>
+
+
+</div>
+
+</body>
