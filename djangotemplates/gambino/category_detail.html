@@ -1,0 +1,11 @@
+{% extends "base_categories.html" %}
+
+{% block title %}{{ block.super }} | Categories{% endblock %}
+
+{% block content %}
+    <h2>{{ categories.title }}</h2>
+{% endblock %}
+
+{% block whatis %}
+<p>This is a list of the {{ object_list.count }} categories.</p>
+{% endblock %}

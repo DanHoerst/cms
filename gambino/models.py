@@ -24,7 +24,7 @@ class Category(models.Model):
         return self.title
     # Status get_absolute_url
     def get_absolute_url(self):
-        return "/categories/%s/" % self.slug
+        return "/weblog/categories/%s/" % self.slug
     # Live entries
     def live_entry_set(self):
         from gambino.models import Entry

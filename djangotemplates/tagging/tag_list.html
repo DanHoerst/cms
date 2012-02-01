@@ -1,0 +1,18 @@
+{% extends "base_tags.html" %}
+
+{% block title %}{{ block.super }}{% endblock %}
+
+
+{% block content %}
+    <h2>Tags</h2>
+    
+    <p>List of tags:</p>
+    
+    {% for tag in object_list %}
+      <p>{{ tag.name }}</p>
+    {% endfor %}
+{% endblock %}
+
+{% block whatis %}
+<p>This is a list of the tags used on the blog.</p>
+{% endblock %}
