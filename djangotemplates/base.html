@@ -48,6 +48,34 @@ margin-top:10px;
 	font-weight:bold;
 	margin-top:3px;
   }
+
+#sidebarnav a.list {
+	width:250px;
+	display:block;
+	clear:both;
+    padding-left:0px;
+	padding-top:6px;
+	height:25px;
+	color:#FFFFFF;
+	text-decoration:none;
+	font-size:14px;
+	font-weight:bold;
+	margin-top:3px;
+  }
+
+#sidebarnav h2 {
+	width:250px;
+	display:block;
+	clear:both;
+	padding-left:20px;
+	padding-top:6px;
+	height:25px;
+	color:#FFFFFF;
+	text-decoration:none;
+	font-size:16px;
+	font-weight:bold;
+	margin-top:3px;
+  }
   
   
 #sidebarnav a:hover {
@@ -132,7 +160,7 @@ text-decoration:underline;
 <body>
 <div id="page">	
 	<div id="header">
-			<h1><a href="#">A Simple CMS</a></h1>
+			<h1>A Simple CMS</h1>
 			<div class="description">Blog</div>
 	</div>
 	
@@ -146,7 +174,7 @@ text-decoration:underline;
     {% endblock %}
 	</div>
 	
-	<div id="sidebar">
+   	<div id="sidebar">
 		<div id="sidebarnav">
 		<a href="{% url gambino_entry_archive_index %}">Home</a>
         <a href="{% url gambino_link_archive_index %}">Links</a>
@@ -154,9 +182,31 @@ text-decoration:underline;
         <a href="{% url gambino_tag_list %}">Tags</a>
 		<a href="/search/">FlatPages</a>
 		<a href="/contactus/">Contact Us</a>
-		</div>
+        <br><br>
+        {% load gambino_tags %}
+        <h2>Five latest entries:</h2>
+        <ul>
+            {% get_latest_content gambino.entry 5 as latest_entries %}
+            {% for entry in latest_entries %}
+            <li>
+                <a class="list" href="{{ entry.get_absolute_url }}">{{ entry.title }}</a>
+                Posted {{ entry.pub_date|timesince }} ago.
+            </li>
+            {% endfor %}
+        </ul>
+        <h2>Five latest links:</h2>
+        <ul>
+            {% get_latest_content gambino.link 5 as latest_links %}
+            {% for link in latest_links %}
+            <li>
+                <a class="list" href="{{ link.get_absolute_url }}">{{ link.title }}</a>
+                Posted {{ link.pub_date|timesince }} ago.
+            </li>
+            {% endfor %}
+        </ul>
+	</div>
 		
-		<div class="widget">
+	<div class="widget">
 		<h2>Simple CMS</h2>
 		This is a simple CMS system developed in Python, Django, HTML, and CSS. Thank you for using it!
 		<br/><br/>

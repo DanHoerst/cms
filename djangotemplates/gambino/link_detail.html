@@ -1,48 +1,26 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+{% extends "base_links.html" %}
 
-<html>
+{% block title %}{{ block.super }} | {{ object.title }}{% endblock %}
 
-{% extends "base.html" %}
-<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}style.css"  MEDIA=screen>
+{% block content %}
+<h2>{{ object.title }}</h2>
+{{ object.description_html|safe }}
+<p><a href="{{ object.url }}">Visit site</a></p>
+{% endblock %}
 
-<body>
+{% block whatis %}
+<p>This is a link posted to my blog on {{ object.pub_date|date:"F j, Y" }}.</p>
 
-<div id="page">	
-	<div id="header">
-			<h1><a href="#">A Simple CMS</a></h1>
-
-			<div class="description">Blog</div>
-	</div>
-	
-	<div id="mainarea">
-	<div id="contentarea">
-    {% block content %}
-    {{ object.description_html|safe }}
-    <p><a href="{{ object.url }}">Visit site</a></p>
-    {% endblock %}
-	</div>
-	
-	<div id="sidebar">
-		<div id="sidebarnav">
-		<a href="/weblog/">Home</a>
-		<a href="/search/">FlatPages</a>
-		<a href="/contactus/">Contact Us</a>
-		</div>
-		
-		<div class="widget">
-		<h2>Simple CMS</h2>
-		This is a simple CMS system developed in Python, Django, HTML, and CSS. Thank you for using it!
-		<br/><br/>
-		<strong>Dan Hoerst</strong>
-	</div></div></div>
-	
-	<div id="footer">
-		Designed by Dan Hoerst. A simple CMS and Weblog</a>
-	</div>
-
-
-</div>
-
-</body>
-
-</html>
+{% if object.tags.count %}
+    <p>This link is tagged with
+    {% for tag in object.categories.all %}
+        <a href="{{ tag.get_absolute_url }}">{{ tag.title }}</a>
+        {% if forloop.last %}{% else %}
+        {% ifequal forloop.revcounter0 1 %}and {% else %}, {% endifequal %}
+        {% endif %}
+    {% endfor %}
+    </p>
+{% else %}
+    <p>This link doesn't have any tags.</p>
+{% endif %}
+{% endblock %}
