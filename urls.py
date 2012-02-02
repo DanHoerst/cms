@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import *
-from django.contrib import admin
+from django.contrib import admin, comments
 from django.contrib.flatpages import urls
 admin.autodiscover()
 
@@ -20,6 +20,8 @@ urlpatterns = patterns('',
     url(r'^weblog/', include('cms.gambino.urls.entries')),
     # Contact
     url(r'^contactus/$', 'cms.search.views.contactus'),
+    # Comments
+    url(r'^comments/', include('django.contrib.comments.urls')),
     # Catch All
     url(r'', include('django.contrib.flatpages.urls')),
 )

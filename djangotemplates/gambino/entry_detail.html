@@ -1,11 +1,20 @@
 {% extends "base_entries.html" %}
 
+
+
 {% block title %}{{ block.super }} | {{ object.title }}{% endblock %}
 
 {% block content %}
 <h2>{{ object.title }}</h2>
 <br>
 <p>{{ object.body_html|safe }}</p>
+<br><br><br>
+<h2>Post a comment</h2>
+<br>
+{% load comments %}
+<h3>{% render_comment_list for object %}</h3>
+<br><br><br>
+{% render_comment_form for object %}
 {% endblock %}
 
 {% block whatis %}
