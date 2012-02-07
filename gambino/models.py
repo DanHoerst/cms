@@ -4,7 +4,7 @@ import datetime
 from tagging.fields import TagField
 from markdown import markdown
 from django.conf import settings
-from django.core.urlresolvers import reverse
+
 # Manager override for Entry class to allow for LIVE_STATUS filtering
 class LiveEntryManager(models.Manager):
     def get_query_set(self):

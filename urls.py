@@ -1,6 +1,4 @@
 from django.conf.urls.defaults import *
-from django.contrib import admin, comments
-from django.contrib.flatpages import urls
 admin.autodiscover()
 
 urlpatterns = patterns('',
